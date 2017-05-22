@@ -1,0 +1,17 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+  @foreach (var album in Model.GetInventory())
+  {
+    <h4>@album.GetTitle()</h4>
+    <p>By: @album.GetArtist()</p>
+    <p>Price: $@album.GetPrice()</p>
+  }
+  @if (Model.GetCount() == 0)
+  {
+    <p>We're sorry, but we’re out of stock!</p>
+  }
+</div>
